@@ -6,6 +6,7 @@ import Notice from "../models/notification.js";
 export const registerUser = async (req, res) => {
   try {
     const { name, email, password, isAdmin, role, title } = req.body;
+    console.log(User.findOne());
 
     const userExist = await User.findOne({ email });
 

@@ -9,7 +9,11 @@ import { dbConnection } from "./utils/index.js";
 
 dotenv.config();
 
-dbConnection();
+dbConnection()
+  .then(() => {
+    console.log("success");
+  })
+  .catch(console.error);
 
 const PORT = process.env.PORT || 5000;
 
@@ -33,5 +37,4 @@ app.use("/api", routes);
 
 app.use(routeNotFound);
 app.use(errorHandler);
-
 app.listen(PORT, () => console.log(`Server listening on ${PORT}`));
